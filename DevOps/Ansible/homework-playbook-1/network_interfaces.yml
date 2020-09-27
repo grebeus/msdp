@@ -1,0 +1,7 @@
+---
+- name: View Network Interfaces List
+  hosts: all
+  tasks:
+  - name: List Appropriate Ansible Facts
+    debug: 
+      msg: "{{ ansible_interfaces }}"

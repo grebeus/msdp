@@ -1,0 +1,2 @@
+Hostname: node1
+Server uptime: 69734.52

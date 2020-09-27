@@ -1,0 +1,9 @@
+{% if  common_epithet_list|length > 0 %}
+<html> 
+    <body> 
+{% for epithet in common_epithet_list %}
+        <h2> {{ epithet }} {{ common_nickname }} <h2>
+{% endfor %}
+    </body> 
+</html> 
+{% endif %}
