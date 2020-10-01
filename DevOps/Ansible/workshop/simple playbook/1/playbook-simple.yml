@@ -1,0 +1,20 @@
+---
+
+- name: Hello World Playbook
+  hosts: mgm
+  tasks:
+  - name: Debug Hello
+    debug:
+      msg: Hello Debug!
+  - name: Shell Hello
+    shell: "echo Hello Shell!"
+
+- name: View Ansible Facts
+  hosts: dc
+  tasks:
+  - name: OS Distribution
+    debug:
+      msg:
+        - "OS: {{ ansible_distribution }}" 
+        - "FQDN: {{ ansible_fqdn }}"
+        - "IPv4: {{ ansible_default_ipv4.address }}"

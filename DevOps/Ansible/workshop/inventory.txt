@@ -1,0 +1,28 @@
+[all:vars]
+ansible_user=vagrant
+
+[prd:vars]
+environment=production
+
+[dev:vars]
+environment=development
+
+[sbx:vars]
+environment=sandbox
+
+[prd]
+node2
+
+[dev]
+node1
+
+[sbx]
+node3 ansible_host=node1
+node4 ansible_host=node2
+
+[mgm]
+control ansible_connection=local
+
+[dc:children]
+dev
+prd
