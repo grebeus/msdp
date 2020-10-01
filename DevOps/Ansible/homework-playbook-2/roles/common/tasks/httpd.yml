@@ -1,0 +1,8 @@
+---
+
+- name: Install httpd package
+  package: 
+    name: httpd
+    state: present
+  notify:
+    - Restart httpd

@@ -1,0 +1,11 @@
+---
+
+- name: Create whoami site
+  template:
+    src: "whoami.html.j2"
+    dest: "/var/www/html/whoami.html"
+
+- name: Create whoami2 site
+  template:
+    src: "whoami2.html.j2"
+    dest: "/var/www/html/whoami2.html"

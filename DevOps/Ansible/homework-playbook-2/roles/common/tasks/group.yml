@@ -1,0 +1,5 @@
+---
+
+- name: Assign host to the group
+  group_by:
+    key: "{{ common_server_group }}"

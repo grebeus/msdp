@@ -1,0 +1,38 @@
+---
+- name: Prepare control machine
+  hosts: control
+  gather_facts: false
+  
+  tasks:
+    
+    - name: Install prerequisites
+      package:
+        name: libselinux-python3
+        state: present
+      become: true
+
+    - name: Create reports folder
+      file:
+        path: ./reports
+        state: directory
+
+
+- name: Generate uptime reports
+  hosts: managed_nodes
+  gather_facts: false
+
+  tasks:
+
+    - name: Set host_uptime fact
+      uptime:
+
+    - name: Show host_uptime facts
+      debug: 
+        msg: "{{host_uptime}}"
+
+    - name: Populate report template
+      template:
+        src: "hostname.uptime_report.txt.j2"
+        dest: "./reports/{{ inventory_hostname }}.txt"
+      become: true
+      delegate_to: localhost
