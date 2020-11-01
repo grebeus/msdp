@@ -1,0 +1,5 @@
+verbose: true
+retention:
+  monthly: 2
+  weekly: 4
+  daily: 5
